@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A344D86E-BC54-4DFE-8E20-818E15E6613A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MSS</RootNamespace>
+    <AssemblyName>MSS</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>..\..\..\..\..\Downloads\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\GlobalFun.cs" />
+    <Compile Include="CrystalReports\DrugIssueReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DrugIssueReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\DrugIssueReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\DrugIssueReportForm.Designer.cs">
+      <DependentUpon>DrugIssueReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\DBConnection.cs" />
+    <Compile Include="Backup\DumpData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Backup\DumpData.Designer.cs">
+      <DependentUpon>DumpData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAOClasses\DashboardDAO.cs" />
+    <Compile Include="Forms\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAOClasses\CommonDAO.cs" />
+    <Compile Include="Forms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Channel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Channel.Designer.cs">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Doctors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Doctors.Designer.cs">
+      <DependentUpon>Doctors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAOClasses\FeedbackDAO.cs" />
+    <Compile Include="Classes\DBTest.cs" />
+    <Compile Include="Forms\Feedback.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Feedback.Designer.cs">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\Validate.cs" />
+    <Compile Include="DAOClasses\ManageDumpDataDAO.cs" />
+    <Compile Include="DAOClasses\MainDAO.cs" />
+    <Compile Include="PIMSDbDataSetDrugs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMSDbDataSetDrugs.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Forms\MDIMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MDIMain.Designer.cs">
+      <DependentUpon>MDIMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAOClasses\PaymentDAO.cs" />
+    <Compile Include="Forms\Medicines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medicines.Designer.cs">
+      <DependentUpon>Medicines.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Patients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Patients.Designer.cs">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Prescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Prescription.Designer.cs">
+      <DependentUpon>Prescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PIMSDbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMSDbDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PIMSDbDataSetPrescription.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMSDbDataSetPrescription.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PIMSDbDataSetUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PIMSDbDataSetUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DAOClasses\ReportPatientRegDAO.cs" />
+    <Compile Include="SubForms\ReportPatientReg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\ReportPatientReg.Designer.cs">
+      <DependentUpon>ReportPatientReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\CustomerFeedbackReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\.Designer.cs">
+      <DependentUpon>CustomerFeedbackReport.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Doctors_delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Doctors_delete.Designer.cs">
+      <DependentUpon>Doctors_delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Doctor_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Doctor_add.Designer.cs">
+      <DependentUpon>Doctor_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Doctors_updates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Doctors_updates.Designer.cs">
+      <DependentUpon>Doctors_updates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\ChannelingAndSpecialzationReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\ChannelingAndSpecialzationReport.Designer.cs">
+      <DependentUpon>ChannelingAndSpecialzationReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\DoctoerAppoinmentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\DoctoerAppoinmentReport.Designer.cs">
+      <DependentUpon>DoctoerAppoinmentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\ProfitAccodingToReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\ProfitAccodingToReport.Designer.cs">
+      <DependentUpon>ProfitAccodingToReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Patient_delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Patient_delete.Designer.cs">
+      <DependentUpon>Patient_delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Patient_update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Patient_update.Designer.cs">
+      <DependentUpon>Patient_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Patient_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Patient_add.Designer.cs">
+      <DependentUpon>Patient_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Channel_Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Channel_Delete.Designer.cs">
+      <DependentUpon>Channel_Delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Channel_Update.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Channel_Update.Designer.cs">
+      <DependentUpon>Channel_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\Channel_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\Channel_add.Designer.cs">
+      <DependentUpon>Channel_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\DrugInventoryReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\DrugInventoryReports.Designer.cs">
+      <DependentUpon>DrugInventoryReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\UpdateUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\UpdateUsers.Designer.cs">
+      <DependentUpon>UpdateUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\AddNewUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\AddNewUsers.Designer.cs">
+      <DependentUpon>AddNewUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\UpdateDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\UpdateDrug.Designer.cs">
+      <DependentUpon>UpdateDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\AddNewDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\AddNewDrug.Designer.cs">
+      <DependentUpon>AddNewDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\IssueDrug.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\IssueDrug.Designer.cs">
+      <DependentUpon>IssueDrug.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\UpdatePrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\UpdatePrescription.Designer.cs">
+      <DependentUpon>UpdatePrescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\AddNewPrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\AddNewPrescription.Designer.cs">
+      <DependentUpon>AddNewPrescription.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CrystalReports\DrugIssueReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DrugIssueReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\DrugIssueReportForm.resx">
+      <DependentUpon>DrugIssueReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Doctors.resx">
+      <DependentUpon>Doctors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Channel.resx">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Feedback.resx">
+      <DependentUpon>Feedback.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medicines.resx">
+      <DependentUpon>Medicines.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Patients.resx">
+      <DependentUpon>Patients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MDIMain.resx">
+      <DependentUpon>MDIMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Prescription.resx">
+      <DependentUpon>Prescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="SubForms\CustomerFeedbackReport.resx">
+      <DependentUpon>CustomerFeedbackReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Doctors_delete.resx">
+      <DependentUpon>Doctors_delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Doctor_add.resx">
+      <DependentUpon>Doctor_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Doctors_updates.resx">
+      <DependentUpon>Doctors_updates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\ChannelingAndSpecialzationReport.resx">
+      <DependentUpon>ChannelingAndSpecialzationReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\DoctoerAppoinmentReport.resx">
+      <DependentUpon>DoctoerAppoinmentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\ProfitAccodingToReport.resx">
+      <DependentUpon>ProfitAccodingToReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Patient_delete.resx">
+      <DependentUpon>Patient_delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Patient_update.resx">
+      <DependentUpon>Patient_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Patient_add.resx">
+      <DependentUpon>Patient_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Channel_Delete.resx">
+      <DependentUpon>Channel_Delete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Channel_Update.resx">
+      <DependentUpon>Channel_Update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\Channel_add.resx">
+      <DependentUpon>Channel_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\DrugInventoryReports.resx">
+      <DependentUpon>DrugInventoryReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\ReportPatientReg.resx">
+      <DependentUpon>ReportPatientReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\UpdateUsers.resx">
+      <DependentUpon>UpdateUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\AddNewUsers.resx">
+      <DependentUpon>AddNewUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\UpdateDrug.resx">
+      <DependentUpon>UpdateDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\AddNewDrug.resx">
+      <DependentUpon>AddNewDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\IssueDrug.resx">
+      <DependentUpon>IssueDrug.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\UpdatePrescription.resx">
+      <DependentUpon>UpdatePrescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\AddNewPrescription.resx">
+      <DependentUpon>AddNewPrescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="PIMSDbDataSet.xsc">
+      <DependentUpon>PIMSDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PIMSDbDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PIMSDbDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PIMSDbDataSet.xss">
+      <DependentUpon>PIMSDbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PIMSDbDataSetDrugs.xsc">
+      <DependentUpon>PIMSDbDataSetDrugs.xsd</DependentUpon>
+    </None>
+    <None Include="PIMSDbDataSetDrugs.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PIMSDbDataSetDrugs.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PIMSDbDataSetDrugs.xss">
+      <DependentUpon>PIMSDbDataSetDrugs.xsd</DependentUpon>
+    </None>
+    <None Include="PIMSDbDataSetPrescription.xsc">
+      <DependentUpon>PIMSDbDataSetPrescription.xsd</DependentUpon>
+    </None>
+    <None Include="PIMSDbDataSetPrescription.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PIMSDbDataSetPrescription.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PIMSDbDataSetPrescription.xss">
+      <DependentUpon>PIMSDbDataSetPrescription.xsd</DependentUpon>
+    </None>
+    <None Include="PIMSDbDataSetUsers.xsc">
+      <DependentUpon>PIMSDbDataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="PIMSDbDataSetUsers.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PIMSDbDataSetUsers.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PIMSDbDataSetUsers.xss">
+      <DependentUpon>PIMSDbDataSetUsers.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
